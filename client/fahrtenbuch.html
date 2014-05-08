@@ -1,0 +1,57 @@
+<head>
+  <title>Das Fahrtenbuch</title>
+</head>
+
+<body>
+    <div id="vehicles-list">
+        <h1>Fahrzeuge</h1>
+        {{> vehicles}}
+    </div>
+
+    <div id="drives-list">
+        {{> drives}}
+    </div>
+
+</body>
+
+<template name="vehicles">
+
+    {{#each vehicleList}}
+    <div class="vehicle {{selected}}">
+        <span style="font-size: 32px">⛐</span> {{plate}}
+    </div>
+    {{/each}}
+
+    <div id="createVehicle">
+        <input type="text" id="new-vehicle-plate" placeholder="Neues KFZ..." />
+    </div>
+
+</template>
+
+<template name="drives">
+
+    {{#if any_vehicle_selected}}
+
+        {{#each driveList}}
+        <div class="drive {{selected}}">
+            {{description}}
+        </div>
+        {{/each}}
+
+    <div id="createDrives">
+        <input type="text" id="new-drive-description" placeholder="Fahrtbeschreibung..." />
+    </div>
+
+    {{else}}
+        <div class="info-box">
+            Bitte ein Fahrzeug auswählen...
+        </div>
+    {{/if}}
+
+</template>
+
+<template name="hello">
+    <h1>Hello World!</h1>
+    {{greeting}}
+    <input type="button" value="Click" />
+</template>
