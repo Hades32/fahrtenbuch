@@ -3,12 +3,12 @@
 </head>
 
 <body>
-    <div id="vehicles-list">
+    <div id="vehicles-list-container">
         <h1>Fahrzeuge</h1>
         {{> vehicles}}
     </div>
 
-    <div id="drives-list">
+    <div id="drives-list-container">
         {{> drives}}
     </div>
 
@@ -31,16 +31,40 @@
 <template name="drives">
 
     {{#if any_vehicle_selected}}
+        <table id="drives-list">
+            <thead>
+            <tr>
+                <th>start</th>
+                <th>end</th>
+                <th>description</th>
+                <th>privateDrive</th>
+                <th>successfulRentals</th>
+                <th>failedRentals</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each driveList}}
+                <tr class="drive {{selected}}">
+                    <td>{{start}}</td>
+                    <td>{{end}}</td>
+                    <td>{{description}}</td>
+                    <td>
+                        {{#if privateDrive}}
+                        ✓ ja
+                        {{else}}
+                        ✗ nein
+                        {{/if}}
+                    </td>
+                    <td>{{successfulRentals}}</td>
+                    <td>{{failedRentals}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
 
-        {{#each driveList}}
-        <div class="drive {{selected}}">
-            {{description}}
+        <div id="new-drive">
+            {{> newDrive}}
         </div>
-        {{/each}}
-
-    <div id="createDrives">
-        <input type="text" id="new-drive-description" placeholder="Fahrtbeschreibung..." />
-    </div>
 
     {{else}}
         <div class="info-box">
@@ -50,8 +74,33 @@
 
 </template>
 
-<template name="hello">
-    <h1>Hello World!</h1>
-    {{greeting}}
-    <input type="button" value="Click" />
+<template name="newDrive">
+    <label>
+        <span>Von</span>
+        <input type="datetime-local" class="start"/>
+    </label>
+    <label>
+        <span>Bis</span>
+        <input type="datetime-local" class="end"/>
+    </label>
+    <label>
+        <span>Fahrtbeschreibung</span>
+        <input type="text" class="description" />
+    </label>
+    <label>
+        <span>Privatfahrt</span>
+        <input type="checkbox" class="private" checked/>
+    </label>
+    <label>
+        <span>Erfolgreiche Mieten</span>
+        <input type="number" class="successfulRentals"/>
+    </label>
+    <label>
+        <span>Fehlgeschlagene Mieten</span>
+        <input type="number" class="failedRentals"/>
+    </label>
+    <div>
+        <input type="button" class="save" value="Speichern" />
+    </div>
+
 </template>

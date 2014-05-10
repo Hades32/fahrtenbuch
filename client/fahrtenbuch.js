@@ -78,15 +78,33 @@ Template.drives.driveList = function(){
     return Drives.find({vehicle: curVehicle}, {sort: {description: 1}});
 };
 
-Template.drives.events(okCancelEvents(
-    '#new-drive-description',
-    {
-        ok: function (text, evt) {
+Template.newDrive.events({
+    'click .save':
+        function (event, template) {
             var curVehicle = Session.get('selected_vehicle_plate');
-            var newDrive = {description: text, vehicle: curVehicle};
+            var description = template.find(".description").value;
+            var privateDrive = template.find(".private").checked;
+            var start = template.find(".start").value;
+            var end = template.find(".end").value;
+            var successfulRentals = template.find(".successfulRentals").value;
+            var failedRentals = template.find(".failedRentals").value;
+            var newDrive =
+                {
+                    description: description,
+                    vehicle: curVehicle,
+                    privateDrive: privateDrive,
+                    start : start,
+                    end : end,
+                    successfulRentals : successfulRentals,
+                    failedRentals : failedRentals
+                };
             var id = Drives.insert(newDrive);
-            evt.target.value = "";
-        }
-    }));
+        },
+
+    'click .cancel':
+        function () {
+            //mode clean something
+}
+});
 
 

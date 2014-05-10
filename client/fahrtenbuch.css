@@ -38,7 +38,7 @@ h3 {
     text-align: center;
 }
 
-#drives-list, #vehicles-list, #bottom-pane {
+#drives-list-container, #vehicles-list-container, #bottom-pane {
     position: absolute;
     left: 0;
     right: 0;
@@ -59,14 +59,14 @@ h3 {
     padding: 8px;
 }
 
-#drives-list {
+#drives-list-container {
     top: 45px;
     bottom: 0;
     left: 220px;
     overflow: auto;
 }
 
-#vehicles-list {
+#vehicles-list-container {
     width: 200px;
     right: auto;
     overflow: auto;
@@ -123,20 +123,50 @@ h3 {
     padding-left: 2px;
 }
 
-#vehicles-list .list {
+#vehicles-list-container .list {
     padding: 3px 6px;
 }
 
-#vehicles-list .selected {
+#vehicles-list-container .selected {
     padding: 2px 6px;
     background: #9be;
     font-weight: bold;
 }
 
-#vehicles-list .list-name {
+#vehicles-list-container .list-name {
     cursor: pointer;
     color: black;
     text-decoration: none;
+}
+
+#drives-list{
+    padding: 12px;
+    margin: 12px;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+#drives-list td, #drives-list th{
+    padding: 6px;
+    border: 1px solid gray;
+    table-layout: fixed;
+}
+
+#new-drive{
+    background-color: #f9f9f9;
+    padding: 12px;
+    margin: 12px;
+}
+
+#new-drive label{
+    display: block;
+    margin: 12px;
+}
+
+#new-drive label > span{
+    float: left;
+    font-weight: bold;
+    width: 170px;
 }
 
 #createList {
