@@ -30,6 +30,10 @@ a, a:visited, a:active {
     color: #258;
 }
 
+h1 {
+    margin: 6px 6px 24px 6px;
+}
+
 h3 {
     font-weight: bold;
     text-decoration: underline;
@@ -123,20 +127,26 @@ h3 {
     padding-left: 2px;
 }
 
-#vehicles-list-container .list {
-    padding: 3px 6px;
-}
-
 #vehicles-list-container .selected {
-    padding: 2px 6px;
-    background: #9be;
+    background: #28a0f7;
+    color: #ffffff;
     font-weight: bold;
+    margin-left: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
-#vehicles-list-container .list-name {
-    cursor: pointer;
+.vehicle{
+    padding: 0;
+    margin-bottom: 3px;
+    background-color: #f0f0f0;
+}
+
+.vehicle .icon{
+    background-color: #ffffff;
+    display: inline-block;
     color: black;
-    text-decoration: none;
+    font-size: 32px;
 }
 
 #drives-list{
@@ -164,7 +174,7 @@ h3 {
 }
 
 #new-drive label > span{
-    float: left;
+    display: inline-block;
     font-weight: bold;
     width: 170px;
 }
