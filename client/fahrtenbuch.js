@@ -2,9 +2,12 @@
 Vehicles = new Meteor.Collection("vehicles");
 //TODO describe drives list
 Drives = new Meteor.Collection("drives");
+//TODO describe
+Testers = new Meteor.Collection("testers");
 
 // ID of currently selected list
 Session.setDefault('selected_vehicle_plate', null);
+Session.setDefault('new_tester_open', false);
 
 ////////// Helpers for in-place editing //////////
 
@@ -73,6 +76,10 @@ Template.drives.any_vehicle_selected = function () {
     return ! Session.equals('selected_vehicle_plate', null);
 };
 
+Template.drives.new_tester_open = function () {
+    return Session.equals('new_tester_open', true);
+};
+
 Template.drives.driveList = function(){
     var curVehicle = Session.get('selected_vehicle_plate');
     return Drives.find({vehicle: curVehicle}, {sort: {description: 1}});
@@ -88,6 +95,7 @@ Template.newDrive.events({
             var end = template.find(".end").value;
             var successfulRentals = template.find(".successfulRentals").value;
             var failedRentals = template.find(".failedRentals").value;
+            var selectedTester = template.find(".selectedTester").value;
             var newDrive =
                 {
                     description: description,
@@ -96,7 +104,8 @@ Template.newDrive.events({
                     start : start,
                     end : end,
                     successfulRentals : successfulRentals,
-                    failedRentals : failedRentals
+                    failedRentals : failedRentals,
+                    testerId : selectedTester
                 };
             var id = Drives.insert(newDrive);
         },
@@ -104,7 +113,39 @@ Template.newDrive.events({
     'click .cancel':
         function () {
             //mode clean something
-}
+        }
+});
+
+Template.newDrive.events({
+    'click .newTester':
+        function (event, template) {
+            Session.set('new_tester_open', true);
+        }
+});
+
+Template.newDrive.testerList = function(){
+    return Testers.find({},{sort:{name:1}});
+};
+
+Template.newTester.events({
+    'click .save':
+        function (event, template) {
+            var name = template.find(".name").value;
+            var company = template.find(".company").value;
+            var newTester =
+            {
+                name: name,
+                company: company
+            };
+            var id = Testers.insert(newTester);
+            Session.set('new_tester_open', false);
+            template.find(".name").value = '';
+            template.find(".company").value = '';
+        },
+    'click .closeBtn':
+        function (event, template) {
+            Session.set('new_tester_open', false);
+        }
 });
 
 

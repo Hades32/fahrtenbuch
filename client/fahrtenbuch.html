@@ -48,6 +48,8 @@
                     <td>{{start}}</td>
                     <td>{{end}}</td>
                     <td>{{description}}</td>
+                    <!-- TODO get tester here!
+                         Maybe have separate template with function... -->
                     <td>
                         {{#if privateDrive}}
                         ✓ ja
@@ -62,9 +64,15 @@
             </tbody>
         </table>
 
-        <div id="new-drive">
+        <div id="new-drive" class="header-box">
             {{> newDrive}}
         </div>
+
+        {{#if new_tester_open}}
+            <div id="new-tester" class="header-box">
+                {{>newTester}}
+            </div>
+        {{/if}}
 
     {{else}}
         <div class="info-box">
@@ -75,6 +83,7 @@
 </template>
 
 <template name="newDrive">
+    <h2>Neue Fahrt</h2>
     <label>
         <span>Von</span>
         <input type="datetime-local" class="start"/>
@@ -85,7 +94,7 @@
     </label>
     <label>
         <span>Fahrtbeschreibung</span>
-        <input type="text" class="description" />
+        <input type="text" class="description" width="500" />
     </label>
     <label>
         <span>Privatfahrt</span>
@@ -98,6 +107,31 @@
     <label>
         <span>Fehlgeschlagene Mieten</span>
         <input type="number" class="failedRentals"/>
+    </label>
+    <label>
+        <span>Tester</span>
+        <select class="selectedTester">
+            {{#each testerList}}
+            <option value="{{_id}}">{{name}} - {{company}}</option>
+            {{/each}}
+        </select>
+        <a href="#" class="newTester">Neuer Tester</a>
+    </label>
+    <div>
+        <input type="button" class="save" value="Speichern" />
+    </div>
+
+</template>
+
+<template name="newTester">
+    <h2>Neuer Tester <a href="#" class="closeBtn">X</a></h2>
+    <label>
+        <span>Name</span>
+        <input type="text" class="name" />
+    </label>
+    <label>
+        <span>Firma</span>
+        <input type="text" class="company" />
     </label>
     <div>
         <input type="button" class="save" value="Speichern" />
