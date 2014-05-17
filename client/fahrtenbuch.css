@@ -155,13 +155,16 @@ h1, h2, h3 {
     padding: 0;
     margin-bottom: 3px;
     background-color: #f0f0f0;
+    height: 36px;
+    font-size: 22px;
 }
 
 .vehicle .icon{
-    background-color: #ffffff;
+    background: url("/car.png");
+    width: 36px;
+    height: 36px;
+    margin-bottom: -6px;
     display: inline-block;
-    color: black;
-    font-size: 32px;
 }
 
 #drives-list{

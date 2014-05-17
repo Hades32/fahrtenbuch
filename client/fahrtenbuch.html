@@ -18,7 +18,7 @@
 
     {{#each vehicleList}}
     <div class="vehicle {{selected}}">
-        <span class="icon">⛐</span> {{plate}}
+        <span class="icon"></span> {{plate}}
     </div>
     {{/each}}
 
@@ -54,8 +54,6 @@
                     <td>{{endKM}}</td>
                     <td>{{description}}</td>
                     <td>{{tester.name}}@{{tester.company}}</td>
-                    <!-- TODO get tester here!
-                         Maybe have separate template with function... -->
                     <td>
                         {{#if privateDrive}}
                         ✓ ja
