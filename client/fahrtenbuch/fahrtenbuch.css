@@ -93,6 +93,11 @@ h1, h2, h3 {
     background: #ddd;
 }
 
+#bottom-pane{
+    bottom: 0;
+    top: auto;
+}
+
 .tag {
     cursor: pointer;
     float: left;

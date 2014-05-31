@@ -12,4 +12,14 @@
         {{> drives}}
     </div>
 
+    <div id="bottom-pane">
+        {{>statusDisplay}}
+    </div>
+
 </body>
+
+<template name="statusDisplay">
+    <div class="meteor-status">
+        <span>Status: {{status}}</span>
+    </div>
+</template>
