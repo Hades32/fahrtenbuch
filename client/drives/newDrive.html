@@ -1,0 +1,49 @@
+
+<template name="newDrive">
+    <h2>Neue Fahrt</h2>
+    <label>
+        <span>Von</span>
+        <input type="datetime-local" class="start"/>
+    </label>
+    <label>
+        <span>Bis</span>
+        <input type="datetime-local" class="end"/>
+    </label>
+    <label>
+        <span>Start-KM</span>
+        <input type="number" min="1" max="1000000" class="startKM" value="{{lastEndKm}}"/>
+    </label>
+    <label>
+        <span>End-KM</span>
+        <input type="number" min="1" max="1000000" class="endKM"/>
+    </label>
+    <label>
+        <span>Fahrtbeschreibung</span>
+        <input type="text" min="1" class="description" width="500" />
+    </label>
+    <label>
+        <span>Privatfahrt</span>
+        <input type="checkbox" class="private" checked/>
+    </label>
+    <label>
+        <span>Erfolgreiche Mieten</span>
+        <input type="number" min="0" max="42" class="successfulRentals"/>
+    </label>
+    <label>
+        <span>Fehlgeschlagene Mieten</span>
+        <input type="number" min="0" max="42" class="failedRentals"/>
+    </label>
+    <label>
+        <span>Tester</span>
+        <select class="selectedTester">
+            {{#each testerList}}
+            <option value="{{_id}}">{{name}} - {{company}}</option>
+            {{/each}}
+        </select>
+        <a href="#" class="newTester">Neuer Tester</a>
+    </label>
+    <div>
+        <input type="button" class="save" value="Speichern" />
+    </div>
+
+</template>

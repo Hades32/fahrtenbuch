@@ -26,6 +26,10 @@
     background-color: #f9f9f9;
 }
 
+.drive td.issue{
+    background-color: rgba(255, 0, 0, 0.36);
+}
+
 #new-drive input[type^="text"] {
     width: 400px;
 }
