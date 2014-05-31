@@ -1,0 +1,25 @@
+
+.vehicle{
+    padding: 0;
+    margin-bottom: 3px;
+    background-color: #f0f0f0;
+    height: 36px;
+    font-size: 22px;
+}
+
+.vehicle .icon{
+    background: url("/car.png");
+    width: 36px;
+    height: 36px;
+    margin-bottom: -6px;
+    display: inline-block;
+}
+
+
+#create-vehicle{
+    margin: 24px 6px;
+}
+
+#delete-vehicle-box{
+    margin: 24px 6px;
+}

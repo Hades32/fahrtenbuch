@@ -93,11 +93,6 @@ h1, h2, h3 {
     background: #ddd;
 }
 
-#createVehicle{
-    margin-top: 24px;
-    margin-left: 6px;
-}
-
 .tag {
     cursor: pointer;
     float: left;
@@ -151,48 +146,6 @@ h1, h2, h3 {
     margin-bottom: 6px;
 }
 
-.vehicle{
-    padding: 0;
-    margin-bottom: 3px;
-    background-color: #f0f0f0;
-    height: 36px;
-    font-size: 22px;
-}
-
-.vehicle .icon{
-    background: url("/car.png");
-    width: 36px;
-    height: 36px;
-    margin-bottom: -6px;
-    display: inline-block;
-}
-
-#drives-list{
-    margin: 12px 0;
-    border: 4px solid #4f4f4f;
-    border-right-width: 0;
-    border-left-width: 0;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#drives-list td, #drives-list th{
-    padding: 6px;
-    border: 1px solid gray;
-    table-layout: fixed;
-}
-
-#drives-list td:nth-child(1),
-#drives-list th:nth-child(1),
-#drives-list td:nth-last-child(1),
-#drives-list th:nth-last-child(1){
-    border-left-width: 0;
-    border-right-width: 0;
-}
-
-#drives-list thead{
-    background-color: #f9f9f9;
-}
 
 .header-box{
     background-color: #f9f9f9;
@@ -223,9 +176,6 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-#new-drive input[type^="text"] {
-    width: 400px;
-}
 
 #createList {
     padding: 3px 6px;
