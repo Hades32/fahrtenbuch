@@ -81,7 +81,7 @@ h1, h2, h3 {
 #drives-list-container {
     top: 45px;
     bottom: 0;
-    left: 201px;
+    left: 200px;
     overflow: auto;
 }
 
@@ -96,6 +96,13 @@ h1, h2, h3 {
 #bottom-pane{
     bottom: 0;
     top: auto;
+    padding: 4px;
+    background-color: #cccccc;
+    border-top: 1px solid #999;
+}
+
+.not-connected{
+    border-left: 4px solid indianred;
 }
 
 .tag {

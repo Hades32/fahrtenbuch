@@ -1,3 +1,12 @@
 Template.statusDisplay.status = function () {
-    return JSON.stringify(Meteor.status());
+    return Meteor.status();
 };
+
+Template.statusDisplay.statusOk = function () {
+    if (Meteor.status().connected)
+        return "";
+    else
+        return "not-connected";
+};
+
+
