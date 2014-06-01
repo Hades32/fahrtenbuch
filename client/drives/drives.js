@@ -37,3 +37,12 @@ Template.driveListItem.distance = function(){
 Template.driveListItem.distanceIssue = function(){
     return (this.endKM - this.startKM) > 120 ? "issue" : "";
 };
+
+Template.driveListItem.events({
+    'click .delete':
+        function (event, template) {
+            if (prompt("Delete this drive?\n"+JSON.stringify(this, undefined, 2))){
+                Drives.remove(this._id);
+            }
+        }
+});

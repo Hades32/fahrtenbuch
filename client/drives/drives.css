@@ -22,6 +22,11 @@
     border-right-width: 0;
 }
 
+#drives-list th {
+    border-bottom: 4px solid #4f4f4f;
+    text-align: center;
+}
+
 #drives-list thead{
     background-color: #f9f9f9;
 }
