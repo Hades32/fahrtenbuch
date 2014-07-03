@@ -36,17 +36,18 @@ Template.newDrive.events({
                 startKM : startKM,
                 endKM : endKM
             };
-            var id = Drives.insert(newDrive);
+            Drives.insert(newDrive, function(err,id) {
 
-            if (id){
-                template.find(".description").value = "";
-                template.find(".start").value = "";
-                template.find(".end").value = "";
-                template.find(".successfulRentals").value  = "";
-                template.find(".failedRentals").value  = "";
-                template.find(".startKM").value = "";
-                template.find(".endKM").value = "";
-            }
+                if (!err && id) {
+                    template.find(".description").value = "";
+                    template.find(".start").value = "";
+                    template.find(".end").value = "";
+                    template.find(".successfulRentals").value = "";
+                    template.find(".failedRentals").value = "";
+                    template.find(".startKM").value = "";
+                    template.find(".endKM").value = "";
+                }
+            });
         },
 
     'click .cancel':

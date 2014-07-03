@@ -1,8 +1,5 @@
-<head>
-  <title>Das Fahrtenbuch</title>
-</head>
 
-<body>
+<template name="fahrtenbuch">
     <div id="vehicles-list-container">
         <h1>Fahrzeuge</h1>
         {{> vehicles}}
@@ -16,7 +13,7 @@
         {{>statusDisplay}}
     </div>
 
-</body>
+</template>
 
 <template name="statusDisplay">
     <div class="meteor-status {{statusOk}}">

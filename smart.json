@@ -1,7 +1,7 @@
 {
   "packages": {
-    "router": {},
     "bootstrap-3": {},
-    "fast-render": {}
+    "fast-render": {},
+    "iron-router": {}
   }
 }

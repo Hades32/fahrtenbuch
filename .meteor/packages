@@ -6,3 +6,6 @@
 standard-app-packages
 autopublish
 insecure
+bootstrap-3
+fast-render
+iron-router
