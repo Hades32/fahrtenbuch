@@ -5,8 +5,8 @@ Template.newDrive.events({
             var curVehicle = Session.get('selected_vehicle_plate');
             var description = template.find(".description").value;
             var privateDrive = template.find(".private").checked;
-            var start = template.find(".start").value;
-            var end = template.find(".end").value;
+            var start = new Date(template.find(".start").value);
+            var end = new Date(template.find(".end").value);
             var successfulRentals = template.find(".successfulRentals").value || 0;
             var failedRentals = template.find(".failedRentals").value || 0;
             var startKM = template.find(".startKM").value;

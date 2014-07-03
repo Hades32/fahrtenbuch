@@ -15,6 +15,17 @@
     display: inline-block;
 }
 
+a.unstyled-link{
+    color: #000000;
+}
+
+a.unstyled-link:hover{
+    text-decoration: none;
+}
+
+a.unstyled-link:focus{
+    outline: none;
+}
 
 #create-vehicle{
     margin: 24px 6px;

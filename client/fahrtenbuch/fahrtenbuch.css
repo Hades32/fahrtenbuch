@@ -30,10 +30,6 @@ a, a:visited, a:active {
     color: #258;
 }
 
-h1 {
-    margin: 6px 6px 24px 6px;
-}
-
 h3 {
     font-weight: bold;
     text-decoration: underline;
@@ -47,6 +43,10 @@ h1, h2, h3 {
     background-color: #347bd6;
     margin: 0;
     padding: 6px;
+}
+
+h1{
+    margin-bottom: 12px;
 }
 
 .header-box > h1,
@@ -311,3 +311,16 @@ h1, h2, h3 {
     width: 80px;
 }
 
+.btn {
+    background-color: #28a0f7;
+    color: #ffffff;
+}
+
+#bottom-pane .left {
+    float: left;
+}
+
+#bottom-pane .right {
+    float: right;
+    margin-right: 6px;
+}

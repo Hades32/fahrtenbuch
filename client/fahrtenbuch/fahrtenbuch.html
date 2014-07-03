@@ -11,12 +11,16 @@
 
     <div id="bottom-pane">
         {{>statusDisplay}}
+
+        <div class="right">
+            <a href="/statistik">Statistik</a>
+        </div>
     </div>
 
 </template>
 
 <template name="statusDisplay">
-    <div class="meteor-status {{statusOk}}">
+    <div class="meteor-status left {{statusOk}}">
         <span>Status: {{status.status}}</span>
     </div>
 </template>

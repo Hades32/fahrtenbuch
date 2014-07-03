@@ -2,9 +2,11 @@
 <template name="vehicles">
 
     {{#each vehicleList}}
-    <div class="vehicle {{selected}}">
-        <span class="icon"></span> {{plate}}
-    </div>
+    <a href="/fahrzeug/{{plate}}" class="unstyled-link">
+        <div class="vehicle {{selected}}">
+            <span class="icon"></span> {{plate}}
+        </div>
+    </a>
     {{/each}}
 
     <div id="create-vehicle">
