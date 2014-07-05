@@ -19,7 +19,7 @@ a.unstyled-link{
     color: #000000;
 }
 
-a.unstyled-link:hover{
+a.unstyled-link:hover, a.unstyled-link:focus{
     text-decoration: none;
 }
 
