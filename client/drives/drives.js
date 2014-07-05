@@ -12,6 +12,12 @@ Template.drives.driveList = function(){
     return Drives.find({vehicle: curVehicle}, {sort: {end: 1}});
 };
 
+Template.driveListItem.helpers({
+    localTime: function(date){
+        return date.toLocaleString();
+    }
+});
+
 Template.driveListItem.tester = function(){
     if (this.testerId) {
         var curTester = Testers.findOne({_id: this.testerId}, {sort: {name: 1}});
@@ -20,14 +26,6 @@ Template.driveListItem.tester = function(){
         }
     }
     return "???";
-};
-
-Template.driveListItem.startTime = function(){
-    return new Date(this.start).toLocaleString();
-};
-
-Template.driveListItem.endTime = function(){
-    return new Date(this.end).toLocaleString();
 };
 
 Template.driveListItem.distance = function(){
