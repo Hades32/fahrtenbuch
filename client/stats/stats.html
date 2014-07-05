@@ -2,14 +2,18 @@
 <template name="stats">
     <h1>Statistik</h1>
 
-    <div>
-        <h2>Letzter Monat</h2>
-        <p>{{lastMonthDays}} Nutzungstage</p>
-    </div>
+    <div class="container">
 
-    <div>
-        <h2>Aktueller Monat</h2>
-        <p>{{currentMonthDays}} Nutzungstage</p>
+        <div>
+            <h2>Letzter Monat</h2>
+            <p>{{lastMonthDrives}} Fahrten, {{lastMonthUsageDays}} Nutzungstage</p>
+        </div>
+
+        <div>
+            <h2>Aktueller Monat</h2>
+            <p>{{currentMonthDrives}} Fahrten, {{currentMonthUsageDays}} Nutzungstage</p>
+        </div>
+
     </div>
 
 </template>
