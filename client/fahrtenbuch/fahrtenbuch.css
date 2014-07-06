@@ -83,6 +83,7 @@ h1{
     bottom: 0;
     left: 200px;
     overflow: auto;
+    margin-bottom:1em;
 }
 
 #vehicles-list-container {
