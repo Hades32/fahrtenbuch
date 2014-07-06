@@ -7,14 +7,15 @@
         <tr>
             <th>Startzeit</th>
             <th>Endzeit</th>
+            <th>Dauer</th>
             <th>Start-KM</th>
             <th>End-KM</th>
             <th>KM</th>
             <th>Beschreibung</th>
             <th>Tester</th>
             <th>Privatfahrt</th>
-            <th>Erfolgreiche <br> Mieten</th>
-            <th>Fehlgeschlagene <br> Mieten</th>
+            <th>Mieten</th>
+            <th>Probleme</th>
             <th>...</th>
         </tr>
         </thead>
@@ -47,9 +48,10 @@
     <tr class="drive {{selected}}">
         <td>{{localTime start}}</td>
         <td>{{localTime end}}</td>
-        <td>{{startKM}}</td>
-        <td>{{endKM}}</td>
-        <td class="{{distanceIssue}}">{{distance}}</td>
+        <td>{{duration}}</td>
+        <td class="text-right">{{startKM}}</td>
+        <td class="text-right">{{endKM}}</td>
+        <td class="{{distanceIssue}} text-right">{{distance}}</td>
         <td>{{description}}</td>
         <td>{{tester.name}}@{{tester.company}}</td>
         <td>
@@ -59,8 +61,8 @@
             ✗ nein
             {{/if}}
         </td>
-        <td>{{successfulRentals}}</td>
-        <td>{{failedRentals}}</td>
+        <td class="text-right">{{successfulRentals}}</td>
+        <td class="text-right">{{failedRentals}}</td>
         <td><input type="button" value="X" class="delete"/> </td>
     </tr>
 </template>

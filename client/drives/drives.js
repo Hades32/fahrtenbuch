@@ -36,6 +36,13 @@ Template.driveListItem.distanceIssue = function(){
     return (this.endKM - this.startKM) > 120 ? "issue" : "";
 };
 
+Template.driveListItem.duration = function(){
+    var duration = (this.end.getTime() - this.start.getTime());
+    var oneHour = 60 * 60 * 1000;
+    var oneDay = 24 * oneHour;
+    return duration > oneDay ? ~~(duration/oneDay)+" Tage" : ~~(duration/oneHour)+" Stunden";
+};
+
 Template.driveListItem.events({
     'click .delete':
         function (event, template) {
