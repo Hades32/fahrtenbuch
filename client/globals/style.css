@@ -1,0 +1,14 @@
+
+td.number{
+    text-align: right;
+}
+
+
+tbody > tr:nth-child(even) {
+    background-color: #dfdfdf;
+    background-color: rgba(100,100,100,0.2);
+}
+
+h1 > a, h1 > a:hover, h1 > a:focus , h1 > a:visited {
+    color: #ffffff;
+}

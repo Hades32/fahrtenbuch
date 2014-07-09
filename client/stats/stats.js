@@ -1,15 +1,27 @@
 
+function lastMonth() {
+    var now = new Date();
+    var lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1, 0, 0, 0);
+    return lastMonth;
+}
+
+function monthString(monthDate) {
+    return (monthDate.getMonth()+1) + " / " + monthDate.getFullYear();
+}
+
+Template.stats.lastMonth = function(){
+
+    return monthString(lastMonth());
+};
+
+Template.stats.currentMonth = function(){
+
+    return monthString(new Date());
+};
+
 Template.stats.lastMonthUsageDays = function(){
 
-    var now = new Date();
-    var lastMonth = new Date(now.getFullYear(), now.getMonth()-1, 1, 0, 0, 0);
-    return calculateUsageDays(lastMonth);
-};
-Template.stats.lastMonthDrives = function(){
-
-    var now = new Date();
-    var lastMonth = new Date(now.getFullYear(), now.getMonth()-1, 1, 0, 0, 0);
-    return Drives.findInMonthOfDay(lastMonth).count();
+    return calculateUsageDays(lastMonth());
 };
 
 Template.stats.currentMonthUsageDays = function() {
@@ -17,14 +29,10 @@ Template.stats.currentMonthUsageDays = function() {
     var now = new Date();
     return calculateUsageDays(now);
 };
-Template.stats.currentMonthDrives = function() {
 
-    var now = new Date();
-    return Drives.findInMonthOfDay(now).count();
-};
 
 function calculateUsageDays(dayInMonth) {
-    var drivesThisMonth = Drives.findInMonthOfDay(dayInMonth);
+    var drivesThisMonth = Drives.findPrivateInMonthOfDay(dayInMonth);
 
     var thisYear = dayInMonth.getFullYear();
     var thisMonth = dayInMonth.getMonth();
@@ -32,25 +40,33 @@ function calculateUsageDays(dayInMonth) {
     var startOfNextMonth = new Date(thisYear, thisMonth + 1, 1, 0, 0, 0);
     var endOfCurrentMonth = new Date(startOfNextMonth.getTime() - 1);
 
-    // this list hold for each day of the month if a specific vehicle was driven on that day
-    var usedDays = [];
-
-    var usageDays = 0;
+    // list of vehicles and the days they were driven
+    var vehicles = [];
+    var usageDaysSum = 0;
 
     drivesThisMonth.forEach(function (drive) {
+
         //each day of this drive is handled
         var startDayOfDrive = drive.start.getMonth() === thisMonth ? drive.start.getDate() : 1;
         var endDayOfDrive = drive.end.getMonth() === thisMonth ? drive.end.getDate() : endOfCurrentMonth.getDate();
         Lazy.range(startDayOfDrive, endDayOfDrive + 1).each(function (day) {
-            if (!usedDays[day]) {
-                usedDays[day] = { vehicles: [] };
+            if (!vehicles[drive.vehicle]) {
+                vehicles[drive.vehicle] = { days: [], vehicle: drive.vehicle };
             }
-            if (usedDays[day].vehicles.indexOf(drive.vehicle) === -1) {
-                usedDays[day].vehicles.push(drive.vehicle);
-                usageDays++;
+            if (vehicles[drive.vehicle].days.indexOf(day) === -1) {
+                vehicles[drive.vehicle].days.push(day);
+                usageDaysSum++;
             }
         });
     });
-    return usageDays;
+    var usageList = [];
+    for(var plate in vehicles){
+        var vehicle = vehicles[plate];
+        vehicle.usageDays = vehicle.days.length;
+        delete vehicle.days;
+        usageList.push(vehicle);
+    }
+    usageList.push({ vehicle: "Summe", usageDays: usageDaysSum });
+    return usageList;
 }
 

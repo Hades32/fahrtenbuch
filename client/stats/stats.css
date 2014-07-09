@@ -1,0 +1,21 @@
+
+.usageTable {
+    margin: 12px;
+}
+
+.usageTable tr > * {
+    padding: 6px 20px;
+}
+
+.usageTable thead {
+    font-size: 20px;
+}
+
+.usageTable thead {
+    background-color: #2bbcff;
+    background-color: rgba(43, 188, 255, 0.20);
+}
+
+.usageTable > tbody > tr:nth-last-child(1) {
+    font-weight: bold;
+}

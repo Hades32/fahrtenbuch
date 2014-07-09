@@ -8,7 +8,7 @@ Testers = new Meteor.Collection("testers");
 
 
 
-Drives.findInMonthOfDay = function (dayInMonth) {
+Drives.findPrivateInMonthOfDay = function (dayInMonth) {
     var thisYear = dayInMonth.getFullYear();
     var thisMonth = dayInMonth.getMonth();
     var startOfCurrentMonth = new Date(thisYear, thisMonth, 1, 0, 0, 0);
@@ -17,19 +17,21 @@ Drives.findInMonthOfDay = function (dayInMonth) {
 
     return Drives.find(
         {
-            privateDrive: true,
-            $or: [
-                { $and: [
-                    {start: { $gt: startOfCurrentMonth } },
-                    { end: { $lt: endOfCurrentMonth } }
+            $and: [
+                { $or: [
+                    { $and: [
+                        {start: { $gt: startOfCurrentMonth } },
+                        { end: { $lt: endOfCurrentMonth } }
+                    ] },
+                    { $and: [
+                        {start: { $lt: startOfCurrentMonth } },
+                        { end: { $gt: startOfCurrentMonth } }
+                    ] },
+                    { $and: [
+                        {start: { $lt: endOfCurrentMonth } },
+                        { end: { $gt: endOfCurrentMonth } }
+                    ] }
                 ] },
-                { $and: [
-                    {start: { $lt: startOfCurrentMonth } },
-                    { end: { $gt: startOfCurrentMonth } }
-                ] },
-                { $and: [
-                    {start: { $lt: endOfCurrentMonth } },
-                    { end: { $gt: endOfCurrentMonth } }
-                ] }
+                { privateDrive: true }
             ]});
 };

@@ -1,17 +1,47 @@
 
 <template name="stats">
-    <h1>Statistik</h1>
+    <h1><a href="/">↰</a> Statistik</h1>
 
     <div class="container">
 
         <div>
-            <h2>Letzter Monat</h2>
-            <p>{{lastMonthDrives}} Fahrten, {{lastMonthUsageDays}} Nutzungstage</p>
+            <h2>Letzter Monat - {{lastMonth}}</h2>
+            <table class="usageTable">
+                <thead>
+                    <tr>
+                        <th>Fahrzeug</th>
+                        <th>Nutzungstage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each lastMonthUsageDays}}
+                        <tr>
+                            <td>{{vehicle}}</td>
+                            <td class="number">{{usageDays}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
 
         <div>
-            <h2>Aktueller Monat</h2>
-            <p>{{currentMonthDrives}} Fahrten, {{currentMonthUsageDays}} Nutzungstage</p>
+            <h2>Aktueller Monat - {{currentMonth}}</h2>
+            <table class="usageTable">
+                <thead>
+                <tr>
+                    <th>Fahrzeug</th>
+                    <th>Nutzungstage</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each currentMonthUsageDays}}
+                <tr>
+                    <td>{{vehicle}}</td>
+                    <td class="number">{{usageDays}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
         </div>
 
     </div>
