@@ -79,7 +79,6 @@ h1{
 }
 
 #drives-list-container {
-    top: 45px;
     bottom: 0;
     left: 200px;
     overflow: auto;
