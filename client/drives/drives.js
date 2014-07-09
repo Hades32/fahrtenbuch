@@ -40,7 +40,7 @@ Template.driveListItem.duration = function(){
     var duration = (this.end.getTime() - this.start.getTime());
     var oneHour = 60 * 60 * 1000;
     var oneDay = 24 * oneHour;
-    return duration > oneDay ? ~~(duration/oneDay)+" Tage" : ~~(duration/oneHour)+" Stunden";
+    return duration >= oneDay ? ~~(duration/oneDay)+" Tage" : ~~(duration/oneHour)+" Stunden";
 };
 
 Template.driveListItem.events({
