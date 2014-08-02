@@ -1,0 +1,24 @@
+
+.vehicle-list {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.vehicle-list td {
+    padding: 0 6px;
+}
+
+.form-group{
+    margin: 12px 0;
+}
+
+.vehicle.selected {
+    background-color: lightskyblue;
+}
+
+.vehicle-selected .needs-no-vehicle {
+    display: none;
+}
+.no-vehicle-selected .needs-vehicle {
+    display: none;
+}

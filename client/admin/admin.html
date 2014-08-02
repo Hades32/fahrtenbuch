@@ -1,0 +1,40 @@
+
+<template name="admin">
+    <h1><a href="/">↰</a> Administration</h1>
+
+    <div class="container {{vehicleSelected}}">
+
+        <table class="vehicle-list">
+        <thead>
+            <tr>
+                <th>KFZ</th>
+                <th>Typ</th>
+                <th>Brutto Listenpreis</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each vehicleList}}
+        <tr class="vehicle {{selected}}">
+            <td>{{plate}}</td>
+            <td>{{type}}</td>
+            <td>{{blp}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+        </table>
+
+        <form class="vehicle-edit form-group">
+            <input type="text" data-schema-key="plate"  placeholder="KFZ" />
+            <input type="text" data-schema-key="type"  placeholder="Typ" />
+            <input type="number" data-schema-key="blp"  placeholder="BLP" />
+            <div class="form-group">
+                <input type="button" class="new-vehicle needs-no-vehicle btn" value="Neues Fahrzeug anlegen"/>
+                <input type="button" class="edit-vehicle needs-vehicle btn" value="Fahrzeug speichern"/>
+                <input type="button" class="delete-vehicle needs-vehicle btn" value="Fahrzeug löschen"/>
+                <input type="button" class="cancel-edit-vehicle needs-vehicle btn" value="abbrechen"/>
+            </div>
+        </form>
+
+    </div>
+
+</template>

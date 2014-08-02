@@ -324,3 +324,7 @@ h1{
     float: right;
     margin-right: 6px;
 }
+
+#bottom-pane .right > a{
+    margin-left: 12px;
+}

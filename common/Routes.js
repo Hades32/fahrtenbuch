@@ -5,4 +5,5 @@ Router.map(function(){
         data: function() { Session.set('selected_vehicle_plate', this.params.plate); }
     });
     this.route('stats', { path:'/statistik' });
+    this.route('admin', { path:'/administration' });
 });
