@@ -30,6 +30,13 @@ Template.stats.currentMonthUsageDays = function() {
     return calculateUsageDays(now);
 };
 
+Template.stats.helpers({
+    currency: function(num){
+        const rounded = Math.round(num * 100) / 100;
+        return rounded+" €";
+    }
+});
+
 
 function calculateUsageDays(dayInMonth) {
     var drivesThisMonth = Drives.findPrivateInMonthOfDay(dayInMonth);
@@ -60,13 +67,21 @@ function calculateUsageDays(dayInMonth) {
         });
     });
     var usageList = [];
+    var gwvtSum = 0;
     for(var plate in vehicles){
         var vehicle = vehicles[plate];
         vehicle.usageDays = vehicle.days.length;
         delete vehicle.days;
+        vehicle.gwvt = calcGWTV(plate, vehicle.usageDays);
+        gwvtSum += vehicle.gwvt;
         usageList.push(vehicle);
     }
-    usageList.push({ vehicle: "Summe", usageDays: usageDaysSum });
+    usageList.push({ vehicle: "Summe", usageDays: usageDaysSum, gwvt:gwvtSum });
     return usageList;
+}
+
+function calcGWTV(plate, usageDays) {
+    var vehicle = Vehicles.findOne({plate:plate});
+    return usageDays * (vehicle.blp/100/30);
 }
 

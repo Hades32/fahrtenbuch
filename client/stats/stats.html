@@ -11,14 +11,16 @@
                     <tr>
                         <th>Fahrzeug</th>
                         <th>Nutzungstage</th>
+                        <th>GW VT</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each lastMonthUsageDays}}
-                        <tr>
-                            <td>{{vehicle}}</td>
-                            <td class="number">{{usageDays}}</td>
-                        </tr>
+                    <tr>
+                        <td>{{vehicle}}</td>
+                        <td class="number">{{usageDays}}</td>
+                        <td class="number">{{currency gwvt}}</td>
+                    </tr>
                     {{/each}}
                 </tbody>
             </table>
@@ -31,6 +33,7 @@
                 <tr>
                     <th>Fahrzeug</th>
                     <th>Nutzungstage</th>
+                    <th>GW VT</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,6 +41,7 @@
                 <tr>
                     <td>{{vehicle}}</td>
                     <td class="number">{{usageDays}}</td>
+                    <td class="number">{{currency gwvt}}</td>
                 </tr>
                 {{/each}}
                 </tbody>
