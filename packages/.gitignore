@@ -1,9 +1,6 @@
-/router
-/page-js-ie-support
-/HTML5-History-API
 /bootstrap-3
-/fast-render
-/accounts-admin-ui-bootstrap-3
-/roles
 /iron-router
+/iron-layout
 /blaze-layout
+/iron-core
+/iron-dynamic-template
