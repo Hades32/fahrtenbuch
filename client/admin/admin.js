@@ -1,5 +1,5 @@
 
-const VEHICLE_KEY = VEHICLE_KEY;
+var VEHICLE_KEY = "sel_veh_id";
 
 Template.admin.vehicleList = function(){
     return Vehicles.find({}, {sort: {plate: 1}});
