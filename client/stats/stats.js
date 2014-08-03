@@ -32,7 +32,7 @@ Template.stats.currentMonthUsageDays = function() {
 
 Template.stats.helpers({
     currency: function(num){
-        const rounded = Math.round(num * 100) / 100;
+        var rounded = Math.round(num * 100) / 100;
         return rounded+" €";
     }
 });
