@@ -6,5 +6,8 @@
 standard-app-packages
 autopublish
 insecure
-bootstrap-3
-iron-router
+# bootstrap-3
+# iron-router
+iron:router
+mizzao:bootstrap-3
+
